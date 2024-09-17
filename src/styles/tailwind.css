@@ -1,3 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.logoMain {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffa600;
+}
+
+.centeredSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
