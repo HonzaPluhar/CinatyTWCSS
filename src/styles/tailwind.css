@@ -21,9 +21,27 @@ body {
   color: #ffa600;
 }
 
-.centeredSection {
+.centered {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.btn1 {
+  background-color: #ffa600;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn1:hover {
+  padding: 0.8rem 1.3rem;
+  background-color: #ff7b00;
+  font-weight: 600;
 }
