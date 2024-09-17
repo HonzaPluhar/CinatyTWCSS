@@ -789,7 +789,7 @@ body {
 }
 
 .booked {
-  color: white;
+  color: gray;
   max-width: 40px;
   padding: 0.1rem 0.6rem;
   border-radius: 0.5rem;
