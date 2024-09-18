@@ -29,6 +29,9 @@ cena.textContent = `${cenaListku} Kč`;
 //celkova cena
 let celkovaCena = document.querySelector(".celkovaCena");
 celkovaCena.textContent = `0 Kč`;
+//vybrana sedadla
+vybranaSedadla = document.querySelector("#vybranaSedadla");
+
 /*---------------------
 nastaveni salu
 --------------------- 
@@ -101,7 +104,7 @@ sedadla.forEach((sedadlo) => {
       sedadlo.classList.remove("sedadlo");
       sedadlo.classList.add("selected");
       selectedSeats++;
-      //zde bude celkova cena pocitani
+      showSelectedSeats(sedadlo);
       finalPrice = selectedSeats * cenaListku;
       console.log(finalPrice);
       celkovaCena.textContent = `${finalPrice} Kč`;
@@ -112,6 +115,7 @@ sedadla.forEach((sedadlo) => {
       sedadlo.classList.remove("selected");
       sedadlo.classList.add("sedadlo");
       selectedSeats--;
+      removeSelectedSeat();
       console.log(selectedSeats);
     }
   });
@@ -129,6 +133,7 @@ rezervovat.addEventListener("click", (e) => {
     sedadlo.classList.add("booked");
     saveToLocalStorage();
     reset();
+    removeSelectedSeatsFromInfo();
     console.log(
       `Sedadlo bylo zarezervovano.  Rada: ${sedadlo.rada} Sedadlo: ${sedadlo.sedadlo}`
     );
@@ -164,11 +169,13 @@ function saveToLocalStorage() {
 
 function loadFromLocalStorage() {
   let bookedSeats = JSON.parse(localStorage.getItem("bookedSeats"));
-  bookedSeats.forEach((sedadlo) => {
-    let sedadloElement = document.getElementById(sedadlo);
-    sedadloElement.classList.remove("sedadlo");
-    sedadloElement.classList.add("booked");
-  });
+  if (bookedSeats) {
+    bookedSeats.forEach((sedadlo) => {
+      let sedadloElement = document.getElementById(sedadlo);
+      sedadloElement.classList.remove("sedadlo");
+      sedadloElement.classList.add("booked");
+    });
+  }
 }
 
 loadFromLocalStorage();
@@ -180,9 +187,44 @@ loadFromLocalStorage();
 let resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", (e) => {
   let bookedSeats = document.querySelectorAll(".booked");
+
+  // evaulating if there is something to reset fix
+
   bookedSeats.forEach((sedadlo) => {
     sedadlo.classList.remove("booked");
     sedadlo.classList.add("sedadlo");
   });
   localStorage.clear();
 });
+
+/*---------------------Funkce vyresetovani zobrazeni vybranych sedadel---------------------
+--------------------- 
+*/
+//removeSelectedSeatsFrom "vzbranaSedadla"
+function removeSelectedSeatsFromInfo() {
+  let sedadlaInfo = document.querySelectorAll("#vybranaSedadla p");
+  sedadlaInfo.forEach((sedadlo) => {
+    sedadlo.remove();
+  });
+}
+
+/*---------------------Funkce zobrazeni vybranych sedadel---------------------
+--------------------- 
+*/
+
+function showSelectedSeats(sedadlo) {
+  let sedadloInfo = document.createElement("p");
+  sedadloInfo.textContent = `Rada: ${sedadlo.rada} Sedadlo: ${sedadlo.sedadlo}`;
+  vybranaSedadla.appendChild(sedadloInfo);
+}
+
+/*---------------------Funkce odebrani najdi sedadlo a odeber ho---------------------
+--------------------- 
+*/
+
+function removeSelectedSeat() {
+  let sedadlaInfo = document.querySelectorAll("#vybranaSedadla p");
+  sedadlaInfo.forEach((sedadlo) => {
+    sedadlo.remove();
+  });
+}
