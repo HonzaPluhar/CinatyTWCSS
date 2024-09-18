@@ -127,6 +127,7 @@ rezervovat.addEventListener("click", (e) => {
   selected.forEach((sedadlo) => {
     sedadlo.classList.remove("selected");
     sedadlo.classList.add("booked");
+    saveToLocalStorage();
     reset();
     console.log(
       `Sedadlo bylo zarezervovano.  Rada: ${sedadlo.rada} Sedadlo: ${sedadlo.sedadlo}`
@@ -144,16 +145,44 @@ function reset() {
   celkovaCena.textContent = `${finalPrice} Kč`;
 }
 
+/*---------------------Funkce pro ulozeni---------------------
+--------------------- 
+*/
+
+function saveToLocalStorage() {
+  let bookedSeats = document.querySelectorAll(".booked");
+  let bookedSeatsArray = [];
+  bookedSeats.forEach((sedadlo) => {
+    bookedSeatsArray.push(sedadlo.id);
+  });
+  localStorage.setItem("bookedSeats", JSON.stringify(bookedSeatsArray));
+}
+
+/*---------------------Funkce pro nacteni---------------------
+--------------------- 
+*/
+
+function loadFromLocalStorage() {
+  let bookedSeats = JSON.parse(localStorage.getItem("bookedSeats"));
+  bookedSeats.forEach((sedadlo) => {
+    let sedadloElement = document.getElementById(sedadlo);
+    sedadloElement.classList.remove("sedadlo");
+    sedadloElement.classList.add("booked");
+  });
+}
+
+loadFromLocalStorage();
+
 /*---------------------Vyresetovani kinosalu---------------------
 --------------------- 
 */
 
 let resetBtn = document.getElementById("resetBtn");
-// resetBtn.addEventListener("click", (e) => {
-//   let sedadla = document.querySelectorAll(".sedadlo");
-//   sedadla.forEach((sedadlo) => {
-//     sedadlo.classList.remove("selected");
-//     sedadlo.classList.add("sedadlo");
-//   });
-//   reset();
-// });
+resetBtn.addEventListener("click", (e) => {
+  let bookedSeats = document.querySelectorAll(".booked");
+  bookedSeats.forEach((sedadlo) => {
+    sedadlo.classList.remove("booked");
+    sedadlo.classList.add("sedadlo");
+  });
+  localStorage.clear();
+});

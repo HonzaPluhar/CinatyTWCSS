@@ -766,6 +766,24 @@ body {
   font-weight: 600;
 }
 
+.btnReset {
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+  border: solid 2px #c90202;
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.btnReset:hover {
+  background-color: #c90202;
+  border: solid 2px #c90202;
+  font-weight: 600;
+}
+
 .sedadlo {
   color: white;
   max-width: 40px;
