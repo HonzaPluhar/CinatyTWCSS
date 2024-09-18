@@ -695,9 +695,9 @@ video {
   color: rgb(74 222 128 / var(--tw-text-opacity));
 }
 
-.text-orange-400{
+.text-primaryColor{
   --tw-text-opacity: 1;
-  color: rgb(251 146 60 / var(--tw-text-opacity));
+  color: rgb(255 166 0 / var(--tw-text-opacity));
 }
 
 .text-red-500{
@@ -808,6 +808,23 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.selected {
+  color: white;
+  background-color: #ffa600;
+  max-width: 40px;
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.5rem;
+  border: solid 2px #ffa600;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px){

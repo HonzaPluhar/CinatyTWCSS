@@ -1,45 +1,44 @@
 /*---------------------
-nastaveni cen
+NASTAVENI KINA - EDITABLE!!!!!
 --------------------- 
 */
-
+//nazev filmu
+let nazevFilmu = "Matrix";
+//cislo salu
+let cisloSalu = 1;
+//cena listku
 let cenaListku = 149;
-//zobrazeni ceny listku
-function zobrazCenu() {
-  let cena = document.querySelector(".cenaZaSedadlo");
-  cena.textContent = `${cenaListku} Kč`;
-}
-zobrazCenu();
+//pocet rad
+let pocetRadku = 8;
+//pocet sedadel v rade
+let pocetSedadelVRadku = 6;
 
+/*---------------------
+prirazeni hodnot
+--------------------- 
+*/
+//nazev filmu
+let nazev = document.querySelector(".vysilanyFilm");
+nazev.textContent = nazevFilmu;
+//cislo salu
+let cislo = document.querySelector(".cisloKinosalu");
+cislo.textContent = cisloSalu;
+//cena listku
+let cena = document.querySelector(".cenaZaSedadlo");
+cena.textContent = `${cenaListku} Kč`;
+//celkova cena
+let celkovaCena = document.querySelector(".celkovaCena");
+celkovaCena.textContent = `0 Kč`;
 /*---------------------
 nastaveni salu
 --------------------- 
 */
 
-let pocetRadku = 8;
-let pocetSedadelVRadku = 6;
-
 let sedadloSkin = "☖";
 let vyprodaneSedadlo = "☗";
-
 let sal1 = document.getElementById("sal1");
-
-/*---------------------
-DEBUG
---------------------- 
-*/
-// //vytvor sedadlo pro testovaci ucely v div id sal1
-
-// let sedadlo = document.createElement("p");
-// sedadlo.textContent = sedadloSkin;
-// sedadlo.classList.add("sedadlo");
-// sal1.appendChild(sedadlo);
-
-// if (sedadlo.classList == "sedadlo") {
-//   sedadlo.textContent = sedadloSkin;
-// } else {
-//   sedadlo.textContent = vyprodaneSedadlo;
-// }
+let selectedSeats = 0;
+let finalPrice = 0;
 
 /*---------------------
 OBJEKTY
@@ -49,6 +48,8 @@ OBJEKTY
 let sedadloObj = {
   sedadlo: sedadloSkin,
   vyprodane: vyprodaneSedadlo,
+  isSelected: false,
+  isSold: false,
   checkAvailability: function () {
     if (this.classList == "sedadlo") {
       return this.sedadlo;
@@ -78,6 +79,8 @@ for (let i = 0; i < pocetRadku; i++) {
     sedadlo.textContent = sedadloObj.checkAvailability();
     sedadlo.classList.add("sedadlo");
     sedadlo.id = `sedadlo${i}${j}`;
+    sedadlo.rada = j + 1;
+    sedadlo.sedadlo = i + 1;
     if (sedadlo.classList == "sedadlo") {
       sedadlo.textContent = sedadloSkin;
     } else {
@@ -87,22 +90,70 @@ for (let i = 0; i < pocetRadku; i++) {
   }
 }
 
-/*---------------------Test vyprodani sedadla---------------------
+/*---------------------Vybrani sedadla---------------------
 --------------------- 
 */
 
-let sedadlo00 = document.getElementById("sedadlo00");
-sedadlo00.classList.remove("sedadlo");
-sedadlo00.classList.add("booked");
+let sedadla = document.querySelectorAll(".sedadlo");
+sedadla.forEach((sedadlo) => {
+  sedadlo.addEventListener("click", (e) => {
+    if ((sedadlo.classList == "sedadlo") & (sedadlo.classList != "booked")) {
+      sedadlo.classList.remove("sedadlo");
+      sedadlo.classList.add("selected");
+      selectedSeats++;
+      //zde bude celkova cena pocitani
+      finalPrice = selectedSeats * cenaListku;
+      console.log(finalPrice);
+      celkovaCena.textContent = `${finalPrice} Kč`;
+      console.log(selectedSeats);
+    } else if (sedadlo.classList == "booked") {
+      console.log("sedadlo je vyprodane");
+    } else {
+      sedadlo.classList.remove("selected");
+      sedadlo.classList.add("sedadlo");
+      selectedSeats--;
+      console.log(selectedSeats);
+    }
+  });
+});
 
-let sedadlo21 = document.getElementById("sedadlo21");
-sedadlo21.classList.remove("sedadlo");
-sedadlo21.classList.add("booked");
+/*---------------------Zmena selected sedadla na booked po kliknuti na tlacitko rezervovat---------------------
+--------------------- 
+*/
 
-let sedadlo33 = document.getElementById("sedadlo33");
-sedadlo33.classList.remove("sedadlo");
-sedadlo33.classList.add("booked");
+let rezervovat = document.getElementById("confirmBtn");
+rezervovat.addEventListener("click", (e) => {
+  let selected = document.querySelectorAll(".selected");
+  selected.forEach((sedadlo) => {
+    sedadlo.classList.remove("selected");
+    sedadlo.classList.add("booked");
+    reset();
+    console.log(
+      `Sedadlo bylo zarezervovano.  Rada: ${sedadlo.rada} Sedadlo: ${sedadlo.sedadlo}`
+    );
+  });
+});
 
-let sedadlo44 = document.getElementById("sedadlo44");
-sedadlo44.classList.remove("sedadlo");
-sedadlo44.classList.add("booked");
+/*---------------------Reset hodnot---------------------
+--------------------- 
+*/
+
+function reset() {
+  selectedSeats = 0;
+  finalPrice = 0;
+  celkovaCena.textContent = `${finalPrice} Kč`;
+}
+
+/*---------------------Vyresetovani kinosalu---------------------
+--------------------- 
+*/
+
+let resetBtn = document.getElementById("resetBtn");
+// resetBtn.addEventListener("click", (e) => {
+//   let sedadla = document.querySelectorAll(".sedadlo");
+//   sedadla.forEach((sedadlo) => {
+//     sedadlo.classList.remove("selected");
+//     sedadlo.classList.add("sedadlo");
+//   });
+//   reset();
+// });
