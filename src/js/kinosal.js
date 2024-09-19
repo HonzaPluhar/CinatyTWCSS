@@ -1,3 +1,5 @@
+import { ticketNastaveni } from "./cinemaOptions.js";
+
 /*---------------------
 NASTAVENI KINA - EDITABLE!!!!!
 --------------------- 
@@ -7,7 +9,7 @@ let nazevFilmu = "Matrix";
 //cislo salu
 let cisloSalu = 1;
 //cena listku
-let cenaListku = 149;
+let cenaListku = ticketNastaveni.ticket2d.price;
 //pocet rad
 let pocetRadku = 8;
 //pocet sedadel v rade

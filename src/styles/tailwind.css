@@ -143,3 +143,23 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.cinemaOptionIcon {
+  display: flex;
+  justify-content: right;
+  transition: all 0.3s;
+  padding: 0.9rem;
+}
+
+input[type="number"] {
+  width: 150px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: solid 2px #ffa600;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+}
