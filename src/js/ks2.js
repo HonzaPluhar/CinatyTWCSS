@@ -5,9 +5,9 @@ NASTAVENI KINA - EDITABLE!!!!!
 --------------------- 
 */
 //nazev filmu
-let nazevFilmu = "Matrix";
+let nazevFilmu = "V Hlavě 2";
 //cislo salu
-let cisloSalu = 1;
+let cisloSalu = 2;
 //cena listku
 let cenaListku = ticketNastaveni.ticket2d.price;
 //pocet rad

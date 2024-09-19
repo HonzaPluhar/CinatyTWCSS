@@ -5,7 +5,7 @@ NASTAVENI KINA - EDITABLE!!!!!
 --------------------- 
 */
 //nazev filmu
-let nazevFilmu = "Matrix";
+let nazevFilmu = "Já Padouch 4";
 //cislo salu
 let cisloSalu = 1;
 //cena listku

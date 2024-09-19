@@ -1,6 +1,6 @@
 // proměnné pro ceny vstupenek
-let d2cena = 89;
-let d3cena = 109;
+let d2cena = 99;
+let d3cena = 149;
 
 // Načtení cen z localStorage
 loadFromLocalStorage();
@@ -41,6 +41,7 @@ if (saveButton) {
     d3cena = document.getElementById("3dcena").value;
     savePricesToLocalStorage();
     console.log("Ceny uloženy");
+    alert("Ceny uloženy");
   });
 }
 
