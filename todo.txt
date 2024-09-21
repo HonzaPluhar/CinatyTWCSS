@@ -2,8 +2,12 @@
 
 [] Pri odznaceni pouze jednoho sedadla ponechat zbyla sedadla ve vypisu
 
-[] Udelat description filmu (jako module)
+[X] Udelat description filmu (jako module)
 
 [X] Pri resetovani salu resetovat pouze sal a nemazat celou cache
 
-[] Obsazenost salu pro kazdy sal zvlast !!!!!
+[X] Obsazenost salu pro kazdy sal zvlast !!!!!
+
+[] Bug fix pro URLS
+
+[X] Modularni pridavani filmu a nasledny propisovani do webu
