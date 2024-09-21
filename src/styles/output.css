@@ -713,6 +713,21 @@ video {
   line-height: 2rem;
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -737,6 +752,16 @@ video {
 .text-primaryColor{
   --tw-text-opacity: 1;
   color: rgb(255 166 0 / var(--tw-text-opacity));
+}
+
+.text-green-500{
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.text-secondaryColor{
+  --tw-text-opacity: 1;
+  color: rgb(255 123 0 / var(--tw-text-opacity));
 }
 
 * {

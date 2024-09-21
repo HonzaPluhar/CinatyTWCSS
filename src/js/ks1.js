@@ -10,12 +10,12 @@ NASTAVENI KINA - EDITABLE!!!!!
 // VYSILANY FILM
 --------------------- 
 */
-let film = 2;
+let film = 1;
 
 //nazev filmu
 let nazevFilmu = movies[film - 1].title;
 //cislo salu
-let cisloSalu = 2;
+let cisloSalu = 1;
 //cena listku
 let cenaListku = ticketNastaveni.ticket2d.price;
 //pocet rad
