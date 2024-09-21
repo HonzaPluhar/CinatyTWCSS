@@ -713,6 +713,11 @@ video {
   line-height: 2rem;
 }
 
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -737,6 +742,11 @@ video {
 .text-primaryColor{
   --tw-text-opacity: 1;
   color: rgb(255 166 0 / var(--tw-text-opacity));
+}
+
+.text-secondaryColor{
+  --tw-text-opacity: 1;
+  color: rgb(255 123 0 / var(--tw-text-opacity));
 }
 
 * {
