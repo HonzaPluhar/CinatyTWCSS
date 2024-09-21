@@ -5,7 +5,7 @@ NASTAVENI KINA - EDITABLE!!!!!
 --------------------- 
 */
 //nazev filmu
-let nazevFilmu = "V Hlavě 2";
+let nazevFilmu = "Matrix";
 //cislo salu
 let cisloSalu = 2;
 //cena listku
@@ -14,6 +14,13 @@ let cenaListku = ticketNastaveni.ticket2d.price;
 let pocetRadku = 8;
 //pocet sedadel v rade
 let pocetSedadelVRadku = 6;
+
+/*---------------------
+NASTAVENI ID - pro rozliseni vice salu
+--------------------- 
+*/
+
+let salID = `bookedSeats${cisloSalu}`;
 
 /*---------------------
 prirazeni hodnot
@@ -32,7 +39,7 @@ cena.textContent = `${cenaListku} Kč`;
 let celkovaCena = document.querySelector(".celkovaCena");
 celkovaCena.textContent = `0 Kč`;
 //vybrana sedadla
-vybranaSedadla = document.querySelector("#vybranaSedadla");
+let vybranaSedadla = document.querySelector("#vybranaSedadla");
 
 /*---------------------
 nastaveni salu
@@ -157,12 +164,14 @@ function reset() {
 */
 
 function saveToLocalStorage() {
+  //pridat id salu aby bylo mozne rozlisit mezi vice saly
+
   let bookedSeats = document.querySelectorAll(".booked");
   let bookedSeatsArray = [];
   bookedSeats.forEach((sedadlo) => {
     bookedSeatsArray.push(sedadlo.id);
   });
-  localStorage.setItem("bookedSeats", JSON.stringify(bookedSeatsArray));
+  localStorage.setItem(salID, JSON.stringify(bookedSeatsArray));
 }
 
 /*---------------------Funkce pro nacteni---------------------
@@ -170,7 +179,7 @@ function saveToLocalStorage() {
 */
 
 function loadFromLocalStorage() {
-  let bookedSeats = JSON.parse(localStorage.getItem("bookedSeats"));
+  let bookedSeats = JSON.parse(localStorage.getItem(salID));
   if (bookedSeats) {
     bookedSeats.forEach((sedadlo) => {
       let sedadloElement = document.getElementById(sedadlo);
