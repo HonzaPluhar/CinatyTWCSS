@@ -1,0 +1,9 @@
+[] Pri odznaceni vsech sedadel resetovat celkovou cenu
+
+[] Pri odznaceni pouze jednoho sedadla ponechat zbyla sedadla ve vypisu
+
+[] Udelat description filmu (jako module)
+
+[X] Pri resetovani salu resetovat pouze sal a nemazat celou cache
+
+[] Obsazenost salu pro kazdy sal zvlast !!!!!
