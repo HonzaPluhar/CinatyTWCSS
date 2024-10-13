@@ -6,5 +6,4 @@ Dependencies ->
 /\*/
 Build ->
 
--npm run dev
--npm run build
+Use -npm run dev -> then use Live Server view
