@@ -125,7 +125,7 @@ body {
 
 .sal {
   max-width: 400px;
-  padding: 0.1rem 0.6rem;
+  padding: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
