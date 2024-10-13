@@ -125,15 +125,13 @@ sedadla.forEach((sedadlo) => {
       finalPrice = selectedSeats * cenaListku;
       console.log(finalPrice);
       celkovaCena.textContent = `${finalPrice} Kč`;
-      console.log(selectedSeats);
     } else if (sedadlo.classList == "booked") {
       console.log("sedadlo je vyprodane");
     } else {
       sedadlo.classList.remove("selected");
       sedadlo.classList.add("sedadlo");
       selectedSeats--;
-      removeSelectedSeat();
-      console.log(selectedSeats);
+      removeSelectedSeat(sedadlo);
     }
   });
 });
@@ -144,6 +142,14 @@ sedadla.forEach((sedadlo) => {
 
 let rezervovat = document.getElementById("confirmBtn");
 rezervovat.addEventListener("click", (e) => {
+  if (selectedSeats == 0) {
+    alert("Není vybrane žádné sedadlo");
+    return;
+  } else {
+    alert(`Rezervace byla úspěšná. 
+      Počet lístků: ${selectedSeats}.
+      Celková cena: ${finalPrice} Kč.`);
+  }
   let selected = document.querySelectorAll(".selected");
   selected.forEach((sedadlo) => {
     sedadlo.classList.remove("selected");
@@ -235,17 +241,24 @@ function removeSelectedSeatsFromInfo() {
 
 function showSelectedSeats(sedadlo) {
   let sedadloInfo = document.createElement("p");
-  sedadloInfo.textContent = `Rada: ${sedadlo.rada} Sedadlo: ${sedadlo.sedadlo}`;
+  sedadloInfo.innerHTML = `Řada: <span class="text-primaryColor font-bold text-xl"> ${sedadlo.rada} </span> Sedadlo: <span class="text-primaryColor font-bold text-xl"> ${sedadlo.sedadlo} </span>`;
   vybranaSedadla.appendChild(sedadloInfo);
 }
 
 /*---------------------Funkce odebrani najdi sedadlo a odeber ho---------------------
---------------------- 
+---------------------
 */
 
-function removeSelectedSeat() {
+function removeSelectedSeat(sedadlo) {
   let sedadlaInfo = document.querySelectorAll("#vybranaSedadla p");
-  sedadlaInfo.forEach((sedadlo) => {
-    sedadlo.remove();
+  sedadlaInfo.forEach((sedadloInfo) => {
+    if (
+      sedadloInfo.innerHTML ==
+      `Řada: <span class="text-primaryColor font-bold text-xl"> ${sedadlo.rada} </span> Sedadlo: <span class="text-primaryColor font-bold text-xl"> ${sedadlo.sedadlo} </span>`
+    ) {
+      sedadloInfo.remove();
+      finalPrice = finalPrice - cenaListku;
+      celkovaCena.textContent = `${finalPrice} Kč`;
+    }
   });
 }

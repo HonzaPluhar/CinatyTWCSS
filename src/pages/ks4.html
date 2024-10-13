@@ -14,66 +14,70 @@
     </section>
 
     <!-- CONTAINER -->
-    <section
-      class="container px-4 pt-14 pb-12 min-h-screen max-w-xl mx-auto md:max-w-4xl"
-    >
-      <div class="pb-10 pr-8 flex justify-end">
-        <a href="../index.html"><button class="btn2">Zpět</button></a>
-      </div>
-      <!-- Info o salu -->
-      <section>
-        <div class="flex flex-col gap-6">
-          <p>
-            Kinosál:
-            <span class="cisloKinosalu text-primaryColor font-semibold text-2xl"
-              >0</span
-            >.
-          </p>
-          <p>
-            <span class="vysilanyFilm text-secondaryColor font-bold text-4xl"
-              >Nazev filmu</span
-            >
-          </p>
+    <div class="max-w-2xl px-5 m-auto mt-8">
+      <section
+        class="container px-4 pt-14 pb-12 min-h-screen max-w-xl mx-auto md:max-w-4xl"
+      >
+        <div class="pb-10 pr-8 flex justify-end">
+          <a href="../index.html"><button class="btn2">Zpět</button></a>
         </div>
-      </section>
-      <!-- Main Seating system -->
-      <section class="py-10">
-        <h1 class="font-bold text-primaryColor">Výběr sedadla:</h1>
-        <div class="py-4 px-4" id="sal1">
-          <div class="sal"></div>
-        </div>
-      </section>
+        <!-- Info o salu -->
+        <section>
+          <div class="flex flex-col gap-6">
+            <p>
+              Kinosál:
+              <span
+                class="cisloKinosalu text-primaryColor font-semibold text-2xl"
+                >0</span
+              >.
+            </p>
+            <p>
+              <span class="vysilanyFilm text-secondaryColor font-bold text-4xl"
+                >Nazev filmu</span
+              >
+            </p>
+          </div>
+        </section>
+        <!-- Main Seating system -->
+        <section class="py-10">
+          <h1 class="font-bold text-primaryColor">Výběr sedadla:</h1>
+          <div class="py-4 px-4" id="sal1">
+            <div class="platno">Promítací plátno</div>
+            <div class="sal"></div>
+          </div>
+        </section>
 
-      <!-- SUMMARY -->
-      <section class="py-8">
-        <h1 class="font-bold text-primaryColor">Vybraná sedadla:</h1>
-        <div class="flex flex-col flex-wrap gap-2" id="vybranaSedadla"></div>
+        <!-- SUMMARY -->
+        <section class="py-8">
+          <h1 class="font-bold text-primaryColor">Vybraná sedadla:</h1>
+          <div class="flex flex-col flex-wrap gap-2" id="vybranaSedadla"></div>
 
-        <div class="pt-8">
-          <hr />
-          <h1 class="pt-2 font-bold text-primaryColor">Sumarizace</h1>
-          <div class="flex flex-col gap-4">
-            <div class="flex justify-between">
-              <p>Cena za lístek:</p>
-              <p class="cenaZaSedadlo">100 Kč</p>
+          <div class="pt-8">
+            <hr />
+            <h1 class="pt-2 font-bold text-primaryColor">Sumarizace</h1>
+            <div class="flex flex-col gap-4">
+              <div class="flex justify-between">
+                <p>Cena za lístek:</p>
+                <p class="cenaZaSedadlo">100 Kč</p>
+              </div>
+              <div class="flex justify-between">
+                <p>Celkem:</p>
+                <p class="celkovaCena">0 Kč</p>
+              </div>
             </div>
-            <div class="flex justify-between">
-              <p>Celkem:</p>
-              <p class="celkovaCena">0 Kč</p>
+            <!-- Order button-->
+            <div class="pt-8"></div>
+
+            <div class="py-8 centered">
+              <button class="btn2" id="confirmBtn">Potvrdit objednávku</button>
             </div>
           </div>
-          <!-- Order button-->
-          <div class="pt-8"></div>
-
-          <div class="py-8 centered">
-            <button class="btn2" id="confirmBtn">Potvrdit objednávku</button>
-          </div>
+        </section>
+        <div>
+          <button class="btnReset" id="resetBtn">Resetovat sál</button>
         </div>
       </section>
-      <div>
-        <button class="btnReset" id="resetBtn">Resetovat sál</button>
-      </div>
-    </section>
+    </div>
 
     <script type="module" src="../js/ks4.js"></script>
   </body>

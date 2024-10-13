@@ -1,6 +1,6 @@
-[] Pri odznaceni vsech sedadel resetovat celkovou cenu
+[X] Pri odznaceni vsech sedadel resetovat celkovou cenu
 
-[] Pri odznaceni pouze jednoho sedadla ponechat zbyla sedadla ve vypisu
+[X] Pri odznaceni pouze jednoho sedadla ponechat zbyla sedadla ve vypisu + vypocet
 
 [X] Udelat description filmu (jako module)
 
@@ -8,6 +8,21 @@
 
 [X] Obsazenost salu pro kazdy sal zvlast !!!!!
 
-[] Bug fix pro URLS
+[X] Bug fix pro URLS
 
 [X] Modularni pridavani filmu a nasledny propisovani do webu
+
+[] Pridani 3D filmu
+
+[] Validace vstupnich cen
+
+[X] Promitaci platno
+
+[] Pokrocilejsi vstupenky (deti, dospeli, aj...)
+
+[] Nejaka forma tvorby "ticketu" (jeste nevim jaka 😄) 
+
+[] Moznost aktivovat a deaktivovat film pro vysilani
+
+[/] Potvrzeni po uspesne objednavce (+ validace)
+
