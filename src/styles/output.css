@@ -696,6 +696,11 @@ video {
   background-color: rgb(2 6 23 / var(--tw-bg-opacity));
 }
 
+.px-3{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
@@ -917,7 +922,7 @@ body {
 
 .sal {
   max-width: 400px;
-  padding: 0.1rem 0.6rem;
+  padding: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
