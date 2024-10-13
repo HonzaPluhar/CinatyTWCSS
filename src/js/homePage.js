@@ -1,5 +1,13 @@
 import { movies } from "./movies.js";
 
+//Verison settings
+let version = "1.0.5";
+let lastUpdate = "14.10.2024";
+
+document.querySelector(".version").textContent = `DEV ${version}`;
+document.querySelector(".lastUpdate").textContent = `${lastUpdate}`;
+
+// Elements
 let film1 = document.getElementById("movieCard1");
 let film2 = document.getElementById("movieCard2");
 let film3 = document.getElementById("movieCard3");
@@ -7,7 +15,7 @@ let film4 = document.getElementById("movieCard4");
 let film5 = document.getElementById("movieCard5");
 let film6 = document.getElementById("movieCard6");
 
-//nastav filmKartu href a img z movies.js
+//set filmKartu href and img from movies.js
 film1.href = movies[0].urlKinosalu;
 film1.children[0].src = movies[0].imgHref;
 

@@ -87,6 +87,7 @@ body {
   color: white;
   max-width: 40px;
   padding: 0.1rem 0.6rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   border: solid 2px #ffa600;
   font-size: 1.2rem;
@@ -102,13 +103,14 @@ body {
 .sedadlo:hover {
   background-color: #ff7b00;
   border: solid 2px #ff7b00;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .booked {
   color: gray;
   max-width: 40px;
   padding: 0.1rem 0.6rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   border: solid 2px gray;
   font-size: 1.2rem;
@@ -122,9 +124,24 @@ body {
 }
 
 .sal {
+  max-width: 400px;
+  padding: 0.1rem 0.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
+}
+
+.platno {
+  max-width: 400px;
+  padding: 0.1rem 0.6rem;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  border-top: solid 3px #ffa600;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .selected {
@@ -132,6 +149,7 @@ body {
   background-color: #ffa600;
   max-width: 40px;
   padding: 0.1rem 0.6rem;
+  margin-top: 1rem;
   border-radius: 0.5rem;
   border: solid 2px #ffa600;
   font-size: 1.2rem;
@@ -148,11 +166,13 @@ body {
   display: flex;
   justify-content: right;
   transition: all 0.3s;
-  padding: 0.9rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  cursor: pointer;
 }
 
 input[type="number"] {
-  width: 150px;
+  width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: solid 2px #ffa600;
@@ -188,4 +208,26 @@ input[type="number"] {
   font-size: 2rem;
   font-weight: 700;
   padding: 5px;
+}
+
+.verze {
+  font-size: small;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+  margin-top: 2px;
+}
+
+.verze p {
+  color: gray;
+}
+
+.linkToHome {
+  color: #ffa600;
+  transition: all 0.3s;
+}
+
+.linkToHome:hover {
+  color: #ff7b00;
 }
